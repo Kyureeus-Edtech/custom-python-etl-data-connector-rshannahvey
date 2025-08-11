@@ -6,7 +6,7 @@ from pymongo import MongoClient
 from dotenv import load_dotenv
 from datetime import datetime
 
-# Load .env variables
+
 load_dotenv()
 
 MONGO_URI = os.getenv("MONGODB_URI")
@@ -15,7 +15,6 @@ COLLECTION_NAME = os.getenv("MONGODB_COLLECTION")
 API_URL = "https://stats.cybergreen.net/api/v1/count"
 
 def extract_data_in_pages():
-    """Yield pandas DataFrames page by page from API."""
     page = 1
     while True:
         print(f"Fetching page {page} from API...")
@@ -26,13 +25,12 @@ def extract_data_in_pages():
         if not results:
             print("No more data from API.")
             break
-        # Convert list of dicts to DataFrame
+
         df = pd.DataFrame(results)
         yield df
         page += 1
 
 def transform_data(df):
-    """Transform data for MongoDB storage."""
     print("Transforming data chunk...")
     df['date'] = pd.to_datetime(df['date'], errors='coerce')
     df['risk'] = pd.to_numeric(df['risk'], errors='coerce').astype("Int64")
@@ -43,7 +41,6 @@ def transform_data(df):
     return df
 
 def load_data_chunk(collection, df):
-    """Load a chunk of data into MongoDB."""
     records = df.to_dict(orient="records")
     if records:
         collection.insert_many(records)

@@ -1,9 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>CyberGreen ETL Connector</title>
-</head>
 <body>
   <h1>CyberGreen ETL Connector</h1>
 
@@ -83,12 +79,11 @@ MONGODB_COLLECTION=cybergreen_raw
 
   <h2>Output for etl_connector.py
   </h2>
-
-  ![alt text](ETL_run_new.png)
+    <img src="images/ETL.png" alt="Output 1"/>
 
   <p>In MongoDB, documents inserted have the following structure:</p>
  
-![alt text](db.png)
+<img src="images/db.png"/>
 
 
 <h2>Iterative Testing & Validation</h2>
