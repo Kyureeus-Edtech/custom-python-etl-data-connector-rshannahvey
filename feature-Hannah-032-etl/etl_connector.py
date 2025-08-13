@@ -14,6 +14,7 @@ DB_NAME = os.getenv("MONGODB_DB")
 COLLECTION_NAME = os.getenv("MONGODB_COLLECTION")
 API_URL = "https://stats.cybergreen.net/api/v1/count"
 
+#Extract data from API
 def extract_data_in_pages():
     page = 1
     while True:
@@ -30,6 +31,7 @@ def extract_data_in_pages():
         yield df
         page += 1
 
+#Transforming Data
 def transform_data(df):
     print("Transforming data chunk...")
     df['date'] = pd.to_datetime(df['date'], errors='coerce')
@@ -40,6 +42,7 @@ def transform_data(df):
     df['ingested_at'] = datetime.utcnow()
     return df
 
+#Loding Data to MongoDB
 def load_data_chunk(collection, df):
     records = df.to_dict(orient="records")
     if records:
