@@ -48,8 +48,8 @@
   </ul>
 
   <h3>2. Setup</h3>
-  <pre><code>git clone &lt;repo_url&gt;
-cd &lt;repo_directory&gt;
+  <pre><code>git clone &lt;https://github.com/Kyureeus-Edtech/blockchain-simulation-assignment-1-rshannahvey&gt;
+cd &lt;Hannah_3122225001032_A&gt;
 pip install -r requirements.txt
   </code></pre>
   <p>Create a <code>.env</code> file in the root directory with the following variables:</p>
