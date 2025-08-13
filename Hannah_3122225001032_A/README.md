@@ -53,9 +53,9 @@ cd &lt;Hannah_3122225001032_A&gt;
 pip install -r requirements.txt
   </code></pre>
   <p>Create a <code>.env</code> file in the root directory with the following variables:</p>
-  <pre><code>MONGODB_URI=mongodb://localhost:27017
-MONGODB_DB=cybergreen
-MONGODB_COLLECTION=cybergreen_raw
+  <pre><code>MONGODB_URI = <MongoDB Host URI>
+MONGODB_DB = <Database name>
+MONGODB_COLLECTION = <Collection name>
   </code></pre>
   <p>Adjust these values as needed based on your MongoDB setup.</p>
 
