@@ -31,7 +31,7 @@ def extract_data_in_pages():
         yield df
         page += 1
 
-#Transforming Data
+#Transforming data
 def transform_data(df):
     print("Transforming data chunk...")
     df['date'] = pd.to_datetime(df['date'], errors='coerce')
@@ -42,7 +42,7 @@ def transform_data(df):
     df['ingested_at'] = datetime.utcnow()
     return df
 
-#Loding Data to MongoDB
+#Loding data to MongoDB
 def load_data_chunk(collection, df):
     records = df.to_dict(orient="records")
     if records:
